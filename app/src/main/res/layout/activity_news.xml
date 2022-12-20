@@ -5,7 +5,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.application.library.kotlin.ui.news.NewsActivity">
+    tools:context="cucerdariancatalin.mvp.ui.news.NewsActivity">
 
     <android.support.design.widget.AppBarLayout
         android:layout_width="match_parent"

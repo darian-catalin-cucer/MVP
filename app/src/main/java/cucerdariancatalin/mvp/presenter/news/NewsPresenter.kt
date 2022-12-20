@@ -1,12 +1,16 @@
 package cucerdariancatalin.mvp.presenter.news
 
+import cucerdariancatalin.mvp.data.scheduler.SchedulerInterface
+import cucerdariancatalin.mvp.repository.news.NewsRepository
+import cucerdariancatalin.mvp.ui.news.NewsViewContract
 import io.reactivex.disposables.Disposable
 import timber.log.Timber
 import javax.inject.Inject
 
 class NewsPresenter @Inject
 constructor(private val repository: NewsRepository,
-            private val schedulerProvider: SchedulerInterface) : NewsPresenterContract {
+            private val schedulerProvider: SchedulerInterface
+) : NewsPresenterContract {
 
     private lateinit var view: NewsViewContract
     private var disposable: Disposable? = null

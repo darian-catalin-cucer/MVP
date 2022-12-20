@@ -39,7 +39,7 @@ class NetworkModule () {
     @Provides
     internal fun provideGsonConverterFactory() : GsonConverterFactory {
         val GSON = GsonBuilder()
-            .registerTypeAdapterFactory(AutoValueAdapterFactory())
+            .registerTypeAdapterFactory(testAutoValueAdapterFactory())
             .create()
         return GsonConverterFactory.create(GSON)
     }
