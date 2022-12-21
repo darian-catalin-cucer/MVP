@@ -28,8 +28,7 @@ class NetworkModule () {
 
     @Provides
     internal fun provideOkHttpClient(httpLoggingInterceptor
-                                     : HttpLoggingInterceptor
-    ): OkHttpClient {
+                                     : HttpLoggingInterceptor): OkHttpClient {
         val httpClientBuilder = OkHttpClient.Builder()
         httpClientBuilder.networkInterceptors().add(httpLoggingInterceptor)
 
@@ -39,15 +38,14 @@ class NetworkModule () {
     @Provides
     internal fun provideGsonConverterFactory() : GsonConverterFactory {
         val GSON = GsonBuilder()
-            .registerTypeAdapterFactory(testAutoValueAdapterFactory())
+            .registerTypeAdapterFactory(AutoValueAdapterFactory())
             .create()
         return GsonConverterFactory.create(GSON)
     }
 
     @Provides
     internal fun provideRetrofit(okHttpClient: OkHttpClient,
-                                 converterFactory: GsonConverterFactory
-    ) : Retrofit {
+                                 converterFactory: GsonConverterFactory) : Retrofit {
         return Retrofit.Builder()
             .baseUrl("https://newsapi.org/v1/")
             .client(okHttpClient)
